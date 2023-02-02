@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -8,38 +9,30 @@ import (
 	"strings"
 )
 
+// main is a wrapper around wazero that can be invoked by tinygo test.
 func main() {
-	var opts []string
+	tempDir, err := os.MkdirTemp("", "tinygo")
+	if err != nil {
+		panic(err)
+	}
+	defer os.RemoveAll(tempDir)
+	opts := []string{"-mount=.:/", fmt.Sprintf("-mount=%s:/tmp", tempDir)}
 	var args []string
-	for i, arg := range os.Args[1:] {
+	osArgs := os.Args[1:]
+	for i, arg := range osArgs {
 		if arg == "run" {
 			continue
 		}
 		if arg == "--" {
-			args = append(args, os.Args[i:]...)
+			args = append(args, osArgs[i:]...)
 			break
 		}
 		if !strings.HasPrefix(arg, "--") {
 			args = append(args, arg)
 			continue
 		}
-		if strings.HasPrefix(arg, "--dir=") {
-			if strings.Contains(arg, "..") {
-				// Ignore paths other than current since they're not allowed.
-				continue
-			}
-			if arg == "--dir=." {
-				arg = "--mount=.:/"
-			} else {
-				arg = strings.Replace(arg, "--dir", "--mount", 1)
-			}
-		}
-		if strings.HasPrefix(arg, "--mapdir=") {
-			mapping := arg[len("--mapdir="):]
-			guest, host, _ := strings.Cut(mapping, "::")
-			arg = "--mount=" + host + ":" + guest
-		}
-		opts = append(opts, arg)
+		// Ignore other flags, we add what's needed for wazero and tinygo test to work
+		// manually.
 	}
 
 	goCmd := filepath.Join(runtime.GOROOT(), "bin", "go")
