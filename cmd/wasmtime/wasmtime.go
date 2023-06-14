@@ -36,7 +36,7 @@ func main() {
 	}
 
 	goCmd := filepath.Join(runtime.GOROOT(), "bin", "go")
-	cmdArgs := append([]string{"run"}, "github.com/tetratelabs/wazero/cmd/wazero@v1.0.0-pre.8")
+	cmdArgs := append([]string{"run"}, "github.com/tetratelabs/wazero/cmd/wazero@v1.2.0")
 	cmdArgs = append(cmdArgs, "run")
 	cmdArgs = append(cmdArgs, opts...)
 	cmdArgs = append(cmdArgs, args...)
