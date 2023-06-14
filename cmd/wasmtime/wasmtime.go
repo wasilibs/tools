@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
+	"context"
 	"os"
-	"os/exec"
-	"path/filepath"
-	"runtime"
 	"strings"
+
+	"github.com/tetratelabs/wazero"
+	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
+	"github.com/tetratelabs/wazero/sys"
 )
 
 // main is a wrapper around wazero that can be invoked by tinygo test.
@@ -16,33 +17,54 @@ func main() {
 		panic(err)
 	}
 	defer os.RemoveAll(tempDir)
-	opts := []string{"-mount=.:/", fmt.Sprintf("-mount=%s:/tmp", tempDir)}
 	var args []string
 	osArgs := os.Args[1:]
+	var wasmPath string
 	for i, arg := range osArgs {
-		if arg == "run" {
-			continue
-		}
 		if arg == "--" {
 			args = append(args, osArgs[i:]...)
 			break
 		}
-		if !strings.HasPrefix(arg, "--") {
-			args = append(args, arg)
+
+		if arg == "run" || strings.HasPrefix(arg, "--") {
 			continue
 		}
-		// Ignore other flags, we add what's needed for wazero and tinygo test to work
-		// manually.
+
+		wasmPath = arg
 	}
 
-	goCmd := filepath.Join(runtime.GOROOT(), "bin", "go")
-	cmdArgs := append([]string{"run"}, "github.com/tetratelabs/wazero/cmd/wazero@v1.2.0")
-	cmdArgs = append(cmdArgs, "run")
-	cmdArgs = append(cmdArgs, opts...)
-	cmdArgs = append(cmdArgs, args...)
-	cmd := exec.Command(goCmd, cmdArgs...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	_ = cmd.Run()
-	os.Exit(cmd.ProcessState.ExitCode())
+	wasm, err := os.ReadFile(wasmPath)
+	if err != nil {
+		panic(err)
+	}
+
+	ctx := context.Background()
+	rt := wazero.NewRuntime(ctx)
+	defer rt.Close(ctx)
+
+	wasi_snapshot_preview1.MustInstantiate(ctx, rt)
+
+	cfg := wazero.NewModuleConfig().
+		WithArgs(args...).
+		WithStdout(os.Stdout).
+		WithStderr(os.Stderr).
+		WithFSConfig(wazero.NewFSConfig().
+			WithDirMount(".", "/").
+			WithDirMount(tempDir, "/tmp"))
+
+	for _, kv := range os.Environ() {
+		if k, v, ok := strings.Cut(kv, "="); ok {
+			cfg = cfg.WithEnv(k, v)
+		}
+	}
+
+	_, err = rt.InstantiateWithConfig(ctx, wasm, cfg)
+	if err != nil {
+		if exitErr, ok := err.(*sys.ExitError); ok {
+			exitCode := exitErr.ExitCode()
+			os.Exit(int(exitCode))
+		} else {
+			panic(err)
+		}
+	}
 }
