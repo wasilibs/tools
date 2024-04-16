@@ -21,7 +21,7 @@ func main() {
 	osArgs := os.Args[1:]
 	var wasmPath string
 	for i, arg := range osArgs {
-		if arg == "--" {
+		if wasmPath != "" {
 			args = append(args, osArgs[i:]...)
 			break
 		}
