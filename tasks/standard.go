@@ -27,6 +27,9 @@ type Params struct {
 
 	// EnableTestModes indicates whether non-wazero test modes are enabled.
 	EnableTestModes bool
+
+	// GoReleaser indicates tasks using goreleaser are enabled.
+	GoReleaser bool
 }
 
 // Define defines the tasks for a wasilibs build.
@@ -126,6 +129,24 @@ func Define(params Params) {
 			buildWasm(a)
 		},
 	})
+
+	if params.GoReleaser {
+		goyek.Define(goyek.Task{
+			Name:  "release",
+			Usage: "Builds and uploads executables to a GitHub release.",
+			Action: func(a *goyek.A) {
+				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser@%s release --clean", verGoReleaser))
+			},
+		})
+
+		goyek.Define(goyek.Task{
+			Name:  "snapshot",
+			Usage: "Builds the executables.",
+			Action: func(a *goyek.A) {
+				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser@%s release --snapshot --clean", verGoReleaser))
+			},
+		})
+	}
 }
 
 func buildWasm(a *goyek.A) {
