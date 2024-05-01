@@ -48,7 +48,7 @@ func Define(params Params) {
 		Name:  "lint",
 		Usage: "Executes linters against the code.",
 		Action: func(a *goyek.A) {
-			cmd.Exec(a, fmt.Sprintf("go run github.com/golangci/golangci-lint/cmd/golangci-lint@%s run --build-tags %s --timeout 30m", verGolangCILint, tags))
+			cmd.Exec(a, fmt.Sprintf("go run github.com/golangci/golangci-lint/cmd/golangci-lint@%s run --build-tags %s --timeout=30m", verGolangCILint, tags))
 		},
 	})
 
@@ -171,6 +171,10 @@ const (
 )
 
 func testMode() mode {
+	if flagTestMode == nil {
+		return modeWazero
+	}
+
 	mode := strings.ToLower(*flagTestMode)
 
 	switch mode {
