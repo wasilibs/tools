@@ -3,34 +3,38 @@ package runner
 import (
 	"context"
 	"crypto/rand"
+	"io"
 	"log"
 	"os"
 	"strings"
 
 	"github.com/tetratelabs/wazero"
+	"github.com/tetratelabs/wazero/experimental/sysfs"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
 	wzsys "github.com/tetratelabs/wazero/sys"
 )
 
-func Run(name string, wasm []byte) {
+func Run(name string, args []string, wasm []byte, stdin io.Reader, stdout io.Writer, stderr io.Writer, cwd string) int {
 	ctx := context.Background()
 
 	rt := wazero.NewRuntime(ctx)
 
 	wasi_snapshot_preview1.MustInstantiate(ctx, rt)
 
-	args := []string{name}
-	args = append(args, os.Args[1:]...)
+	args = append([]string{name}, args...)
+
+	root := sysfs.DirFS(cwd)
 
 	cfg := wazero.NewModuleConfig().
 		WithSysNanosleep().
 		WithSysNanotime().
 		WithSysWalltime().
-		WithStderr(os.Stderr).
-		WithStdout(os.Stdout).
-		WithStdin(os.Stdin).
+		WithStderr(stderr).
+		WithStdout(stdout).
+		WithStdin(stdin).
 		WithRandSource(rand.Reader).
-		WithArgs(args...)
+		WithArgs(args...).
+		WithFSConfig(wazero.NewFSConfig().(sysfs.FSConfig).WithSysFSMount(root, "/"))
 	for _, env := range os.Environ() {
 		k, v, _ := strings.Cut(env, "=")
 		cfg = cfg.WithEnv(k, v)
@@ -39,8 +43,9 @@ func Run(name string, wasm []byte) {
 	_, err := rt.InstantiateWithConfig(ctx, wasm, cfg)
 	if err != nil {
 		if sErr, ok := err.(*wzsys.ExitError); ok {
-			os.Exit(int(sErr.ExitCode()))
+			return int(sErr.ExitCode())
 		}
 		log.Fatal(err)
 	}
+	return 0
 }

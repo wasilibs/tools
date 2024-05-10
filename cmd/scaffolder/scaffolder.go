@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-//go:embed template
+//go:embed all:template
 var template embed.FS
 
 func main() {
