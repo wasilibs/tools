@@ -1,22 +1,32 @@
 package main
 
 import (
-	"embed"
+	"archive/zip"
+	"bytes"
+	_ "embed"
 	"io/fs"
 	"log"
 	"os"
 )
 
-//go:embed all:template
-var template embed.FS
+//go:embed template.zip
+var template []byte
 
 func main() {
-	tfs, err := fs.Sub(template, "template")
+	zfs, err := zip.NewReader(bytes.NewReader(template), int64(len(template)))
+	if err != nil {
+		log.Fatal(err)
+	}
+	tfs, err := fs.Sub(zfs, "template")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fs.WalkDir(tfs, ".", func(path string, d fs.DirEntry, err error) error {
+	if err := fs.WalkDir(tfs, ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
 		if d.IsDir() {
 			if err := os.MkdirAll(path, 0o755); err != nil {
 				return err
@@ -31,5 +41,7 @@ func main() {
 			return err
 		}
 		return nil
-	})
+	}); err != nil {
+		log.Fatal(err)
+	}
 }

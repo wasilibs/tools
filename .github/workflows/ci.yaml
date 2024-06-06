@@ -25,15 +25,13 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.work
-          cache-dependency-path: "**/go.sum"
+          cache-dependency-path: |
+            **/go.sum
+            versions.go
 
-      - name: run lint
+      - name: run lints
         if: startsWith(matrix.os, 'ubuntu-')
-        run: go run ./build lint
+        run: go run build -v lint
 
       - name: run tests
-        run: go run ./build test
-
-      - name: build snapshot
-        if: startsWith(matrix.os, 'ubuntu-')
-        run: go run ./build snapshot
+        run: go run build -v test
