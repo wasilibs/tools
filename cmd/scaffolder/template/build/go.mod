@@ -1,25 +1,22 @@
-module github.com/wasilibs/tools
+module build
 
 go 1.22
 
 require (
-	github.com/cli/go-gh/v2 v2.9.0
-	github.com/curioswitch/go-build v0.0.0-20240606064955-be261ad22091
-	github.com/google/go-github v17.0.0+incompatible
-	github.com/goyek/goyek/v2 v2.1.0
 	github.com/goyek/x v0.1.7
-	github.com/tetratelabs/wazero v1.7.1
-	github.com/wasilibs/go-protoc-gen-builtins v1.26.1
+	github.com/wasilibs/tools v0.0.0-20240510013723-27114e64a860
 )
 
 require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/cli/go-gh/v2 v2.9.0 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
 	github.com/fatih/color v1.16.0 // indirect
+	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/goyek/goyek/v2 v2.1.0 // indirect
 	github.com/henvic/httpretty v0.0.6 // indirect
-	github.com/kr/text v0.2.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

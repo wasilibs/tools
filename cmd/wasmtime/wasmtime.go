@@ -12,6 +12,10 @@ import (
 
 // main is a wrapper around wazero that can be invoked by tinygo test.
 func main() {
+	os.Exit(doMain())
+}
+
+func doMain() int {
 	tempDir, err := os.MkdirTemp("", "tinygo")
 	if err != nil {
 		panic(err)
@@ -60,11 +64,12 @@ func main() {
 
 	_, err = rt.InstantiateWithConfig(ctx, wasm, cfg)
 	if err != nil {
-		if exitErr, ok := err.(*sys.ExitError); ok {
+		if exitErr, ok := err.(*sys.ExitError); ok { //nolint:errorlint
 			exitCode := exitErr.ExitCode()
-			os.Exit(int(exitCode))
-		} else {
-			panic(err)
+			return int(exitCode)
 		}
+		panic(err)
 	}
+
+	return 0
 }
