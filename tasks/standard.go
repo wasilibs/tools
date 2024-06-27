@@ -99,13 +99,13 @@ func Define(params Params) {
 			var latest string
 			var release *github.RepositoryRelease
 			if err := gh.Get(fmt.Sprintf("repos/%s/releases/latest", params.LibraryRepo), &release); err != nil {
-				a.Error(err)
+				a.Log(err)
 			}
 
 			if release != nil {
 				latest = release.GetTagName()
 			} else {
-				a.Error("could not find releases, falling back to tag")
+				a.Log("could not find releases, falling back to tag")
 
 				var tags []github.RepositoryTag
 				if err := gh.Get(fmt.Sprintf("repos/%s/tags", params.LibraryRepo), &tags); err != nil {
