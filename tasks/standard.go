@@ -87,25 +87,36 @@ func Define(params Params) {
 		Action: func(a *goyek.A) {
 			currBytes, err := os.ReadFile(filepath.Join("buildtools", "wasm", "version.txt"))
 			if err != nil {
-				a.Error(err)
+				a.Fatal(err)
 			}
 			curr := strings.TrimSpace(string(currBytes))
 
 			gh, err := api.DefaultRESTClient()
 			if err != nil {
-				a.Error(err)
+				a.Fatal(err)
 			}
 
+			var latest string
 			var release *github.RepositoryRelease
 			if err := gh.Get(fmt.Sprintf("repos/%s/releases/latest", params.LibraryRepo), &release); err != nil {
 				a.Error(err)
 			}
 
-			if release == nil {
-				a.Error("could not find releases")
+			if release != nil {
+				latest = release.GetTagName()
+			} else {
+				a.Error("could not find releases, falling back to tag")
+
+				var tags []github.RepositoryTag
+				if err := gh.Get(fmt.Sprintf("repos/%s/tags", params.LibraryRepo), &tags); err != nil {
+					a.Error(err)
+				}
+				if len(tags) == 0 {
+					a.Fatal("could not find tags")
+				}
+				latest = tags[0].GetName()
 			}
 
-			latest := release.GetTagName()
 			if latest == curr {
 				fmt.Println("up to date")
 				return
@@ -140,14 +151,16 @@ func Define(params Params) {
 }
 
 func buildWasm(a *goyek.A) {
-	cmd.Exec(a, fmt.Sprintf("docker build -t wasilibs-build -f %s .", filepath.Join("buildtools", "wasm", "Dockerfile")))
+	if !cmd.Exec(a, fmt.Sprintf("docker build -t wasilibs-build -f %s .", filepath.Join("buildtools", "wasm", "Dockerfile"))) {
+		return
+	}
 	wd, err := os.Getwd()
 	if err != nil {
-		a.Error(err)
+		a.Fatal(err)
 	}
 	wasmDir := filepath.Join(wd, "internal", "wasm")
 	if err := os.MkdirAll(wasmDir, 0o755); err != nil {
-		a.Error(err)
+		a.Fatal(err)
 	}
 	cmd.Exec(a, fmt.Sprintf("docker run --rm -v %s:/out wasilibs-build", wasmDir))
 }
