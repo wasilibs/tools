@@ -1,6 +1,6 @@
 module build
 
-go 1.22
+go 1.22.0
 
 require (
 	github.com/curioswitch/go-build v0.0.0-20240606064955-be261ad22091
