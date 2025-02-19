@@ -1,6 +1,6 @@
 module github.com/wasilibs/tools
 
-go 1.22.0
+go 1.23.0
 
 require (
 	github.com/cli/go-gh/v2 v2.9.0
