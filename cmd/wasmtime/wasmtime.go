@@ -37,7 +37,7 @@ func doMain() int {
 		wasmPath = arg
 	}
 
-	wasm, err := os.ReadFile(wasmPath)
+	wasm, err := os.ReadFile(wasmPath) //nolint:gosec
 	if err != nil {
 		panic(err)
 	}

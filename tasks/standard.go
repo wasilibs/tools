@@ -123,7 +123,7 @@ func Define(params Params) {
 			}
 
 			fmt.Println("updating to", latest)
-			if err := os.WriteFile(filepath.Join("buildtools", "wasm", "version.txt"), []byte(latest), 0o644); err != nil {
+			if err := os.WriteFile(filepath.Join("buildtools", "wasm", "version.txt"), []byte(latest), 0o644); err != nil { //nolint:gosec
 				a.Error(err)
 			}
 
@@ -159,7 +159,7 @@ func buildWasm(a *goyek.A) {
 		a.Fatal(err)
 	}
 	wasmDir := filepath.Join(wd, "internal", "wasm")
-	if err := os.MkdirAll(wasmDir, 0o755); err != nil {
+	if err := os.MkdirAll(wasmDir, 0o755); err != nil { //nolint:gosec
 		a.Fatal(err)
 	}
 	cmd.Exec(a, fmt.Sprintf("docker run --rm -v %s:/out wasilibs-build", wasmDir))
