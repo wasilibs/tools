@@ -3,8 +3,8 @@ module github.com/wasilibs/tools
 go 1.24.4
 
 require (
-	github.com/cli/go-gh/v2 v2.12.1
-	github.com/curioswitch/go-build v0.3.0
+	github.com/cli/go-gh/v2 v2.12.2
+	github.com/curioswitch/go-build v0.4.0
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/goyek/goyek/v2 v2.3.0
 	github.com/goyek/x v0.3.0
@@ -27,12 +27,12 @@ require (
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
-	github.com/stretchr/testify v1.10.0 // indirect
-	github.com/thlib/go-timezone-local v0.0.6 // indirect
-	golang.org/x/mod v0.25.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/term v0.32.0 // indirect
-	golang.org/x/text v0.26.0 // indirect
+	github.com/stretchr/testify v1.11.0 // indirect
+	github.com/thlib/go-timezone-local v0.0.7 // indirect
+	golang.org/x/mod v0.27.0 // indirect
+	golang.org/x/sys v0.35.0 // indirect
+	golang.org/x/term v0.34.0 // indirect
+	golang.org/x/text v0.28.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
