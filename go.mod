@@ -4,7 +4,7 @@ go 1.24.4
 
 require (
 	github.com/cli/go-gh/v2 v2.12.1
-	github.com/curioswitch/go-build v0.3.0
+	github.com/curioswitch/go-build v0.4.0
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/goyek/goyek/v2 v2.3.0
 	github.com/goyek/x v0.3.0

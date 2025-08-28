@@ -30,7 +30,7 @@ jobs:
 
       - name: run lints
         if: startsWith(matrix.os, 'ubuntu-')
-        run: go run build -v lint
+        run: go run ./build lint
 
       - name: run tests
-        run: go run build -v test
+        run: go run ./build test
