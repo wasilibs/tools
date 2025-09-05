@@ -3,7 +3,7 @@ module github.com/wasilibs/tools
 go 1.24.0
 
 require (
-	github.com/cli/go-gh/v2 v2.12.1
+	github.com/cli/go-gh/v2 v2.12.2
 	github.com/curioswitch/go-build v0.5.2
 	github.com/google/go-github/v74 v74.0.0
 	github.com/goyek/goyek/v2 v2.3.0
