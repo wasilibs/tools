@@ -1,9 +1,8 @@
 package tasks
 
 const (
-	verGolangPerf   = "f3e401e020e40acb40cb31f56872a5a1a8c90f22"
-	verGolangCILint = "v1.64.5"
-	verGosImports   = "v0.3.8"
-	verGoFumpt      = "v0.7.0"
-	verGoReleaser   = "v1.25.1"
+	// renovate: github.com/golangci/golangci-lint/v2
+	verGolangCILint = "v2.4.0"
+	// renovate: github.com/goreleaser/goreleaser/v2
+	verGoReleaser = "v2.12.0"
 )
