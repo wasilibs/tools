@@ -10,6 +10,9 @@ on:
       - .github/workflows/refresh-go-cache.yaml
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   refresh:
     strategy:
