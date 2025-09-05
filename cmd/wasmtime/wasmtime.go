@@ -20,7 +20,7 @@ func doMain() int {
 	if err != nil {
 		panic(err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer os.RemoveAll(tempDir) //nolint:errcheck
 	var args []string
 	osArgs := os.Args[1:]
 	var wasmPath string
@@ -44,7 +44,7 @@ func doMain() int {
 
 	ctx := context.Background()
 	rt := wazero.NewRuntime(ctx)
-	defer rt.Close(ctx)
+	defer rt.Close(ctx) //nolint:errcheck
 
 	wasi_snapshot_preview1.MustInstantiate(ctx, rt)
 

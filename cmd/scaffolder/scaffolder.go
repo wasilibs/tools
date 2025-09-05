@@ -4,6 +4,7 @@ import (
 	"archive/zip"
 	"bytes"
 	_ "embed"
+	"fmt"
 	"io/fs"
 	"log"
 	"os"
@@ -29,16 +30,16 @@ func main() {
 
 		if d.IsDir() {
 			if err := os.MkdirAll(path, 0o755); err != nil { //nolint:gosec
-				return err
+				return fmt.Errorf("scaffolder: creating directory: %w", err)
 			}
 			return nil
 		}
 		content, err := fs.ReadFile(tfs, path)
 		if err != nil {
-			return err
+			return fmt.Errorf("scaffolder: reading embedded file: %w", err)
 		}
 		if err := os.WriteFile(path, content, 0o644); err != nil { //nolint:gosec
-			return err
+			return fmt.Errorf("scaffolder: writing file: %w", err)
 		}
 		return nil
 	}); err != nil {
