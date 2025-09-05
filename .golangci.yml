@@ -1,9 +1,5 @@
 version: "2"
 linters:
-  # Since this repo is just internal build scripts, disable some less useful linters
-  disable:
-    - errcheck
-    - wrapcheck
   enable:
     - asasalint
     - asciicheck
@@ -20,7 +16,7 @@ linters:
     # - dupl - duplicate code can be useful many times
     - dupword
     - durationcheck
-    - err113
+    # - err113 - prevents errorf
     - errchkjson
     - errname
     - errorlint
@@ -106,6 +102,9 @@ linters:
       const-require-grouping: true
       import-require-grouping: true
       var-require-grouping: true
+    wrapcheck:
+      extra-ignore-sigs:
+        - (*golang.org/x/sync/errgroup.Group).Wait()
   exclusions:
     presets:
       - comments

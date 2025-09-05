@@ -9,7 +9,7 @@ import (
 
 	"github.com/cli/go-gh/v2/pkg/api"
 	"github.com/curioswitch/go-build"
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v74/github"
 	"github.com/goyek/goyek/v2"
 	"github.com/goyek/x/cmd"
 )
@@ -35,27 +35,18 @@ type Params struct {
 func Define(params Params) {
 	var opts []build.Option
 	if params.EnableTestModes {
-		opts = append(opts, build.ExcludeTasks("format-go", "lint-go", "test-go"))
+		opts = append(opts, build.ExcludeTasks("lint-go", "test-go"))
 	}
 	build.DefineTasks(opts...)
 
 	if params.EnableTestModes {
 		flagTestMode = flag.String("test-mode", "wazero", "Test mode to use (wazero, cgo, tinygo).")
 
-		build.RegisterFormatTask(goyek.Define(goyek.Task{
-			Name:  "format-go",
-			Usage: "Formats Go code.",
-			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run mvdan.cc/gofumpt@%s -l -w .", verGoFumpt))
-				cmd.Exec(a, fmt.Sprintf("go run github.com/rinchsan/gosimports/cmd/gosimports@%s -w -local github.com/wasilibs .", verGosImports))
-			},
-		}))
-
 		build.RegisterLintTask(goyek.Define(goyek.Task{
 			Name:  "lint-go",
 			Usage: "Executes linters against the code.",
 			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run github.com/golangci/golangci-lint/cmd/golangci-lint@%s run --build-tags %s --timeout=30m", verGolangCILint, buildTags(params.LibraryName)))
+				cmd.Exec(a, fmt.Sprintf("go run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@%s run --build-tags %s --timeout=30m", verGolangCILint, buildTags(params.LibraryName)))
 			},
 		}))
 
@@ -136,7 +127,7 @@ func Define(params Params) {
 			Name:  "release",
 			Usage: "Builds and uploads executables to a GitHub release.",
 			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser@%s release --clean", verGoReleaser))
+				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser/v2@%s release --clean", verGoReleaser))
 			},
 		})
 
@@ -144,7 +135,7 @@ func Define(params Params) {
 			Name:  "snapshot",
 			Usage: "Builds the executables.",
 			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser@%s release --snapshot --clean", verGoReleaser))
+				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser/v2@%s release --snapshot --clean", verGoReleaser))
 			},
 		})
 	}

@@ -9,14 +9,16 @@
     "recommendations": ["esbenp.prettier-vscode"]
   },
   "settings": {
-    "editor.tabSize": 2,
     "[github-actions-workflow]": {
       "editor.formatOnSave": true,
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+     "files.associations": {
+      "renovate*.json": "jsonc"
+    },
     "go.lintFlags": ["--fix"],
     "go.lintOnSave": "package",
-    "go.lintTool": "golangci-lint",
+    "go.lintTool": "golangci-lint-v2",
     "gopls": {
       "formatting.gofumpt": true
     },
