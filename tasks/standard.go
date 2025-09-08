@@ -39,6 +39,8 @@ func Define(params Params) {
 	}
 	build.DefineTasks(opts...)
 
+	runGoReleaser := "go run github.com/goreleaser/goreleaser/v2@" + verGoReleaser
+
 	if params.EnableTestModes {
 		flagTestMode = flag.String("test-mode", "wazero", "Test mode to use (wazero, cgo, tinygo).")
 
@@ -123,11 +125,12 @@ func Define(params Params) {
 	})
 
 	if params.GoReleaser {
+		build.RegisterCommandDownloads(runGoReleaser + " --version")
 		goyek.Define(goyek.Task{
 			Name:  "release",
 			Usage: "Builds and uploads executables to a GitHub release.",
 			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser/v2@%s release --clean", verGoReleaser))
+				cmd.Exec(a, runGoReleaser+" release --clean")
 			},
 		})
 
@@ -135,7 +138,7 @@ func Define(params Params) {
 			Name:  "snapshot",
 			Usage: "Builds the executables.",
 			Action: func(a *goyek.A) {
-				cmd.Exec(a, fmt.Sprintf("go run github.com/goreleaser/goreleaser/v2@%s release --snapshot --clean", verGoReleaser))
+				cmd.Exec(a, runGoReleaser+" release --snapshot --clean")
 			},
 		})
 	}
