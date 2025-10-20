@@ -4,7 +4,7 @@ go 1.24.4
 
 require (
 	github.com/tetratelabs/wazero v1.9.0
-	github.com/wasilibs/go-protoc-gen-builtins v1.32.1
+	github.com/wasilibs/go-protoc-gen-builtins v1.33.0
 )
 
 require (
