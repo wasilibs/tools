@@ -3,8 +3,8 @@ module github.com/wasilibs/cooltool
 go 1.24.4
 
 require (
-	github.com/tetratelabs/wazero v1.9.0
-	github.com/wasilibs/go-protoc-gen-builtins v1.33.0
+	github.com/tetratelabs/wazero v1.10.1
+	github.com/wasilibs/go-protoc-gen-builtins v1.33.2
 )
 
 require (
