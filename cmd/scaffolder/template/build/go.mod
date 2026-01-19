@@ -3,8 +3,8 @@ module build
 go 1.24.4
 
 require (
-	github.com/goyek/x v0.3.0
-	github.com/wasilibs/tools v0.0.0-20251007015302-1f99692a653b
+	github.com/goyek/x v0.4.0
+	github.com/wasilibs/tools v0.0.0-20251202005156-9401d0852584
 )
 
 require (
@@ -12,12 +12,13 @@ require (
 	github.com/cli/go-gh/v2 v2.12.2 // indirect
 	github.com/cli/safeexec v1.0.1 // indirect
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
-	github.com/curioswitch/go-build v0.6.1 // indirect
+	github.com/curioswitch/go-build v0.6.2 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-github/v74 v74.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/goyek/goyek/v2 v2.3.0 // indirect
+	github.com/goyek/goyek/v3 v3.0.0 // indirect
 	github.com/henvic/httpretty v0.1.4 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect

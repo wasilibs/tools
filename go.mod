@@ -1,14 +1,14 @@
 module github.com/wasilibs/tools
 
-go 1.24.0
+go 1.25.0
 
 require (
-	github.com/cli/go-gh/v2 v2.12.2
-	github.com/curioswitch/go-build v0.6.2
+	github.com/cli/go-gh/v2 v2.13.0
+	github.com/curioswitch/go-build v0.6.3
 	github.com/google/go-github/v74 v74.0.0
 	github.com/goyek/goyek/v2 v2.3.0
-	github.com/goyek/x v0.3.0
-	github.com/tetratelabs/wazero v1.9.0
+	github.com/goyek/x v0.4.0
+	github.com/tetratelabs/wazero v1.11.0
 )
 
 require (
@@ -17,6 +17,7 @@ require (
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/goyek/goyek/v3 v3.0.0 // indirect
 	github.com/henvic/httpretty v0.1.4 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
@@ -28,7 +29,7 @@ require (
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/thlib/go-timezone-local v0.0.6 // indirect
-	golang.org/x/sys v0.35.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
 	golang.org/x/term v0.32.0 // indirect
 	golang.org/x/text v0.26.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
