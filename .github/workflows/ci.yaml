@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: curioswitch/go-build/.github/actions/setup-go@7489f72867246693fc1cc65560c68cdc860a1f8a # v0.5.2
+      - uses: curioswitch/go-build/.github/actions/setup-go@8304121f488a5faa0b1ff094b6e2abc8da5b6c43 # v0.7.1
 
       - name: run lints
         if: startsWith(matrix.os, 'ubuntu-')
