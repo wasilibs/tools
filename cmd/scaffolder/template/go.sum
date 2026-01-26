@@ -2,6 +2,8 @@ github.com/tetratelabs/wazero v1.7.1 h1:QtSfd6KLc41DIMpDYlJdoMc6k7QTN246DM2+n2Y/
 github.com/tetratelabs/wazero v1.7.1/go.mod h1:ytl6Zuh20R/eROuyDaGPkp82O9C/DJfXAwJfQ3X6/7Y=
 github.com/tetratelabs/wazero v1.9.0 h1:IcZ56OuxrtaEz8UYNRHBrUa9bYeX9oVY93KspZZBf/I=
 github.com/tetratelabs/wazero v1.9.0/go.mod h1:TSbcXCfFP0L2FGkRPxHphadXPjo1T6W+CseNNY7EkjM=
+github.com/tetratelabs/wazero v1.11.0 h1:+gKemEuKCTevU4d7ZTzlsvgd1uaToIDtlQlmNbwqYhA=
+github.com/tetratelabs/wazero v1.11.0/go.mod h1:eV28rsN8Q+xwjogd7f4/Pp4xFxO7uOGbLcD/LzB1wiU=
 github.com/wasilibs/go-protoc-gen-builtins v1.26.1 h1:OBitrHVlEDD4j/k9PLU+61GFnYlUE6vo+fosMzssP1k=
 github.com/wasilibs/go-protoc-gen-builtins v1.26.1/go.mod h1:rKeiNH+6pzq6ljgp1tZKMLE0ZFFleOA+R74IIAzqbIc=
 github.com/wasilibs/go-protoc-gen-builtins v1.32.0 h1:wRqoH2OGNqZoeZhTouKoCaQIxktabScsogALz//BLGE=
@@ -10,9 +12,13 @@ github.com/wasilibs/go-protoc-gen-builtins v1.32.1 h1:rD/poY35K7bs1lgQgi1Sum/Z8K
 github.com/wasilibs/go-protoc-gen-builtins v1.32.1/go.mod h1:d/27dquwtBRl1bJJkR7ffa17DoUFBc8v5gD/c72lnbg=
 github.com/wasilibs/go-protoc-gen-builtins v1.33.0 h1:NrO/sxOiuqLoPnWBX8gs4aIruj++d4g0ZF4Vog97UTk=
 github.com/wasilibs/go-protoc-gen-builtins v1.33.0/go.mod h1:EuFdjamkmfvIBGQ6cenWuG8QwEmNZnWW1K657p9RX2w=
+github.com/wasilibs/go-protoc-gen-builtins v1.33.4 h1:eK4xo08uRbQ47Wc8cMOPTXBiCtDTxbgLfnjwhcLx9+8=
+github.com/wasilibs/go-protoc-gen-builtins v1.33.4/go.mod h1:R27OGJP8KIjQcSSCE7dUqfkGQQbhOYQUSVVfnDB2yOc=
 github.com/wasilibs/wazero-helpers v0.0.0-20240604052452-61d7981e9a38 h1:RBu75fhabyxyGJ2zhkoNuRyObBMhVeMoXqmeaPTg2CQ=
 github.com/wasilibs/wazero-helpers v0.0.0-20240604052452-61d7981e9a38/go.mod h1:Z80JvMwvze8KUlVQIdw9L7OSskZJ1yxlpi4AQhoQe4s=
 github.com/wasilibs/wazero-helpers v0.0.0-20250123031827-cd30c44769bb h1:gQ+ZV4wJke/EBKYciZ2MshEouEHFuinB85dY3f5s1q8=
 github.com/wasilibs/wazero-helpers v0.0.0-20250123031827-cd30c44769bb/go.mod h1:jMeV4Vpbi8osrE/pKUxRZkVaA0EX7NZN0A9/oRzgpgY=
 golang.org/x/sys v0.35.0 h1:vz1N37gP5bs89s7He8XuIYXpyY0+QlsKmzipCbUtyxI=
 golang.org/x/sys v0.35.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
+golang.org/x/sys v0.38.0 h1:3yZWxaJjBmCWXqhN1qh02AkOnCQ1poK6oF+a7xWL6Gc=
+golang.org/x/sys v0.38.0/go.mod h1:OgkHotnGiDImocRcuBABYBEXf8A9a87e/uXjp9XT3ks=
