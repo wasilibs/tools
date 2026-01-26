@@ -6,6 +6,7 @@ require (
 	github.com/cli/go-gh/v2 v2.12.2
 	github.com/curioswitch/go-build v0.7.1
 	github.com/google/go-github/v74 v74.0.0
+	github.com/google/go-github/v81 v81.0.0
 	github.com/goyek/goyek/v3 v3.0.1
 	github.com/goyek/x v0.4.0
 	github.com/tetratelabs/wazero v1.9.0
