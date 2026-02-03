@@ -14,6 +14,8 @@ github.com/wasilibs/go-protoc-gen-builtins v1.33.0 h1:NrO/sxOiuqLoPnWBX8gs4aIruj
 github.com/wasilibs/go-protoc-gen-builtins v1.33.0/go.mod h1:EuFdjamkmfvIBGQ6cenWuG8QwEmNZnWW1K657p9RX2w=
 github.com/wasilibs/go-protoc-gen-builtins v1.33.4 h1:eK4xo08uRbQ47Wc8cMOPTXBiCtDTxbgLfnjwhcLx9+8=
 github.com/wasilibs/go-protoc-gen-builtins v1.33.4/go.mod h1:R27OGJP8KIjQcSSCE7dUqfkGQQbhOYQUSVVfnDB2yOc=
+github.com/wasilibs/go-protoc-gen-builtins v1.33.5 h1:B3IexAqk0FDU8LDEtH4xLHjUp9Wr9fnxxgbsRh0w95s=
+github.com/wasilibs/go-protoc-gen-builtins v1.33.5/go.mod h1:BcnKO4Bxs6Kk12Hkfk5CJbEN7X6/Pj8oXIpmVlgzyuM=
 github.com/wasilibs/wazero-helpers v0.0.0-20240604052452-61d7981e9a38 h1:RBu75fhabyxyGJ2zhkoNuRyObBMhVeMoXqmeaPTg2CQ=
 github.com/wasilibs/wazero-helpers v0.0.0-20240604052452-61d7981e9a38/go.mod h1:Z80JvMwvze8KUlVQIdw9L7OSskZJ1yxlpi4AQhoQe4s=
 github.com/wasilibs/wazero-helpers v0.0.0-20250123031827-cd30c44769bb h1:gQ+ZV4wJke/EBKYciZ2MshEouEHFuinB85dY3f5s1q8=
