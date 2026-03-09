@@ -109,6 +109,8 @@ github.com/wasilibs/tools v0.0.0-20260217010939-3cf6368c13fb h1:5tAwa4PkWt5Kc7xo
 github.com/wasilibs/tools v0.0.0-20260217010939-3cf6368c13fb/go.mod h1:6fMbnjjzd8di+DgVZ4l8VrFeit/zhhV4lVZt79Y4nxE=
 github.com/wasilibs/tools v0.0.0-20260224074613-f99674ee577f h1:HuNYQ8KUsslfVzmy8McSUxcui6vAGQeavsgyyYH2hdA=
 github.com/wasilibs/tools v0.0.0-20260224074613-f99674ee577f/go.mod h1:6fMbnjjzd8di+DgVZ4l8VrFeit/zhhV4lVZt79Y4nxE=
+github.com/wasilibs/tools v0.0.0-20260303075030-3f9eb59c4e77 h1:8RFenidlrJoP2MYkttpaAndw4Eh74Pvklk7DIccuD6U=
+github.com/wasilibs/tools v0.0.0-20260303075030-3f9eb59c4e77/go.mod h1:6fMbnjjzd8di+DgVZ4l8VrFeit/zhhV4lVZt79Y4nxE=
 golang.org/x/mod v0.27.0 h1:kb+q2PyFnEADO2IEF935ehFUXlWiNjJWtRNgBLSfbxQ=
 golang.org/x/mod v0.27.0/go.mod h1:rWI627Fq0DEoudcK+MBkNkCe0EetEaDSwJJkCcjpazc=
 golang.org/x/sys v0.0.0-20210831042530-f4d43177bf5e/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
