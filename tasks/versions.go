@@ -4,5 +4,5 @@ const (
 	// renovate: github.com/golangci/golangci-lint/v2
 	verGolangCILint = "v2.11.4"
 	// renovate: github.com/goreleaser/goreleaser/v2
-	verGoReleaser = "v2.15.3"
+	verGoReleaser = "v2.15.4"
 )
