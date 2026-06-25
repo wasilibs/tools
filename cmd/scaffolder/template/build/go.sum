@@ -24,6 +24,8 @@ github.com/curioswitch/go-build v0.7.2 h1:D0wxuetaXQAlkTuefAFhIrUTAUes1oAVQR/dDe
 github.com/curioswitch/go-build v0.7.2/go.mod h1:eEjV07dqwuYD/lHjBK+QdpltNglcUHY+uoYObcgyDeY=
 github.com/curioswitch/go-build v0.7.3 h1:HPENh6FSvJ6VMc6qjyoDAKuO+Ou7mSuKdvDC0uYahAM=
 github.com/curioswitch/go-build v0.7.3/go.mod h1:ZQuRTBRXk5b812Xs3RU6mgln2uuQ0MzYYkCkMdmkNeU=
+github.com/curioswitch/go-build v0.7.4 h1:RC0V+H7vLkOXDs/Imigtd81kmk3ZP3VIkZSMsWrbbBs=
+github.com/curioswitch/go-build v0.7.4/go.mod h1:ZQuRTBRXk5b812Xs3RU6mgln2uuQ0MzYYkCkMdmkNeU=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fatih/color v1.16.0 h1:zmkK9Ngbjj+K0yRhTVONQh1p/HknKYSlNT+vZCzyokM=
@@ -122,6 +124,8 @@ github.com/wasilibs/tools v0.0.0-20260519030106-5149b8046e4d h1:n/OvdALOKUYGHpf9
 github.com/wasilibs/tools v0.0.0-20260519030106-5149b8046e4d/go.mod h1:XJxwyomeaD/JTTProySxnrUAFldkC03WL1M9UHfNh3c=
 github.com/wasilibs/tools v0.0.0-20260609004841-942ba81281d7 h1:lpux/UPDDt2Z8tznM1W/J1QcJnIDSnCRwN/ss2gEAIQ=
 github.com/wasilibs/tools v0.0.0-20260609004841-942ba81281d7/go.mod h1:AV12nneJ7o2uMuXqRebKf0ibFeKmDuENWQP+dEY/jH8=
+github.com/wasilibs/tools v0.0.0-20260616023114-f33b761f3588 h1:T98dVG0Y8nDvaxT6I+crjLAlRicU24FDOxmQDM1n63Q=
+github.com/wasilibs/tools v0.0.0-20260616023114-f33b761f3588/go.mod h1:Oxu2q2HBWx9fOnFmWB7Dc5/WizJ/XGMIQyQGpr/oU4g=
 golang.org/x/mod v0.27.0 h1:kb+q2PyFnEADO2IEF935ehFUXlWiNjJWtRNgBLSfbxQ=
 golang.org/x/mod v0.27.0/go.mod h1:rWI627Fq0DEoudcK+MBkNkCe0EetEaDSwJJkCcjpazc=
 golang.org/x/sys v0.0.0-20210831042530-f4d43177bf5e/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
