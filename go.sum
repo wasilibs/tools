@@ -18,7 +18,6 @@ github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
 github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
 github.com/google/go-github/v74 v74.0.0 h1:yZcddTUn8DPbj11GxnMrNiAnXH14gNs559AsUpNpPgM=
 github.com/google/go-github/v74 v74.0.0/go.mod h1:ubn/YdyftV80VPSI26nSJvaEsTOnsjrxG3o9kJhcyak=
-github.com/google/go-github/v88 v88.0.0/go.mod h1:rufTDgn2N45wjhukLTyxmvc9nilSp3mr3Rgtt6b1MPw=
 github.com/google/go-querystring v1.2.0 h1:yhqkPbu2/OH+V9BfpCVPZkNmUXhb2gBxJArfhIxNtP0=
 github.com/google/go-querystring v1.2.0/go.mod h1:8IFJqpSRITyJ8QhQ13bmbeMBDfmeEJZD5A0egEOmkqU=
 github.com/goyek/goyek/v3 v3.0.1 h1:HU2wbAwKujmCnywxRD4GpPcEDjRWspngW8x7MJG9V7E=
@@ -56,8 +55,6 @@ github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0t
 github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7so1lCWt35ZSgc=
 github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
-github.com/tetratelabs/wazero v1.12.0 h1:DuWcpNu/FzgEXgGBDp8J1Spc+CWOvvtvVyjKlaZopYU=
-github.com/tetratelabs/wazero v1.12.0/go.mod h1:LvKtzl2RqO4gyF27BiXU+nKAjcV8f38U+kP/q2vgxh0=
 github.com/thlib/go-timezone-local v0.0.6 h1:Ii3QJ4FhosL/+eCZl6Hsdr4DDU4tfevNoV83yAEo2tU=
 github.com/thlib/go-timezone-local v0.0.6/go.mod h1:/Tnicc6m/lsJE0irFMA0LfIwTBo4QP7A8IfyIv4zZKI=
 golang.org/x/sys v0.0.0-20210831042530-f4d43177bf5e/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
