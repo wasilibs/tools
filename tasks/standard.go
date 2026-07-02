@@ -29,6 +29,9 @@ type Params struct {
 
 	// GoReleaser indicates tasks using goreleaser are enabled.
 	GoReleaser bool
+
+	// BuildOpts are options to passthrough to go-build.
+	BuildOpts []build.Option
 }
 
 // Define defines the tasks for a wasilibs build.
@@ -37,6 +40,7 @@ func Define(params Params) {
 	if params.EnableTestModes {
 		opts = append(opts, build.ExcludeTasks("lint-go", "test-go"))
 	}
+	opts = append(opts, params.BuildOpts...)
 	build.DefineTasks(opts...)
 
 	runGoReleaser := "go run github.com/goreleaser/goreleaser/v2@" + verGoReleaser
