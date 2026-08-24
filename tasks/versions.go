@@ -2,7 +2,7 @@ package tasks
 
 const (
 	// renovate: github.com/golangci/golangci-lint/v2
-	verGolangCILint = "v2.12.2"
+	verGolangCILint = "v2.13.1"
 	// renovate: github.com/goreleaser/goreleaser/v2
-	verGoReleaser = "v2.17.1"
+	verGoReleaser = "v2.18.0"
 )
