@@ -9,7 +9,7 @@ import (
 
 	"github.com/cli/go-gh/v2/pkg/api"
 	"github.com/curioswitch/go-build"
-	"github.com/google/go-github/v74/github"
+	"github.com/google/go-github/v91/github"
 	"github.com/goyek/goyek/v3"
 	"github.com/goyek/x/cmd"
 )
